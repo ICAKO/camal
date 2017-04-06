@@ -450,3 +450,13 @@ jQuery(window).scroll(function () {
         $('.header.fixed').sticky('update');
     }
 });
+
+$(document).ready(function() {
+	$("#product-thumbnails").owlCarousel({
+		navigation : false,
+		nav:false,
+		slideSpeed : 300,
+		paginationSpeed : 400,
+		items : 4
+	});
+});
