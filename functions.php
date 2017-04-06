@@ -10,7 +10,7 @@
 		 * @param true/false  
 		 */
 		 
-		//show_admin_bar(true);
+		add_filter('show_admin_bar', '__return_false');
 		
 		/*
 		 * Make theme available for translation.
@@ -53,6 +53,8 @@
 		// This theme uses wp_nav_menu() in one locations.
 		register_nav_menus( array(
 			'top'    => __( 'Top Menu', 'camal' ),
+			'main_menu'    => __( 'Main Menu', 'camal' ),
+			
 		) );
 		
 		/*
@@ -185,10 +187,9 @@ add_filter('icakocart_cart_thead','icakocart_cart_thead');
 	wp_enqueue_style( 'theme', get_template_directory_uri() . '/assets/css/theme.css');
 	wp_enqueue_style( 'theme-red', get_template_directory_uri() . '/assets/css/theme-red-1.css');
 	
-	
-	wp_enqueue_style( 'wxy-style', get_stylesheet_uri() );
-	
 	wp_enqueue_script( 'colorthief', get_template_directory_uri() . '/assets/plugins/modernizr.custom.js', array('jquery'),'',false);
+	
+	wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
 	
 	// JS
 	
@@ -211,3 +212,11 @@ add_filter('icakocart_cart_thead','icakocart_cart_thead');
 	
  }
  add_action( 'wp_enqueue_scripts', 'arastudios_enqueue_scripts' );
+
+ 
+ // Trace Debug
+ function trace($data) {
+ 	echo "<pre>";
+	print_r($data);
+	echo "</pre>";
+ }
